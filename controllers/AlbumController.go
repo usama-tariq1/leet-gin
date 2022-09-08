@@ -12,10 +12,10 @@ import (
 var DB *gorm.DB
 
 // getAlbums responds with the list of all albums as JSON.
-func GetAlbums(c *gin.Context) {
+func GetAlbums(app *gin.Context) {
 	var albums []models.Album
 	DB = models.DB
 	DB.Find(&albums)
 
-	c.IndentedJSON(http.StatusOK, &albums)
+	app.IndentedJSON(http.StatusOK, &albums)
 }

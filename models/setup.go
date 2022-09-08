@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/usama-tariq1/leet-gin/config"
+	"github.com/usama-tariq1/leet-gin/helper"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -12,6 +13,9 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
+
+	console := helper.Console{}
+
 	env := config.Env{}
 	host := env.Get("DB_HOST")
 	user := env.Get("DB_USER")
@@ -24,13 +28,15 @@ func ConnectDatabase() {
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
+		console.Log("Error", "** Failed to connect to database! **")
+
 		panic("Failed to connect to database!")
 	}
-	fmt.Println("Connected to Database")
+	console.Log("Debug", "** Connected to Database **")
 
-	fmt.Println("Starting Migration")
+	console.Log("Debug", "** Starting Migration **")
 	db.AutoMigrate(&Album{})
-	fmt.Println("Migration Completed")
+	console.Log("Debug", "** Migration Completed **")
 
 	DB = db
 }
