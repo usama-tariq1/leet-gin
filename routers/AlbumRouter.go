@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"example/web-service-gin/controllers"
+	"github.com/usama-tariq1/leet-gin/controllers"
 
 	"github.com/gin-gonic/gin"
 )

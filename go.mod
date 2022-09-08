@@ -1,4 +1,4 @@
-module example/web-service-gin
+module github.com/usama-tariq1/leet-gin
 
 go 1.17
 

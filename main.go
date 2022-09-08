@@ -1,11 +1,12 @@
 package main
 
 import (
-	"example/web-service-gin/config"
-	"example/web-service-gin/models"
-	"example/web-service-gin/routers"
 	"fmt"
 	"log"
+
+	"github.com/usama-tariq1/leet-gin/config"
+	"github.com/usama-tariq1/leet-gin/models"
+	"github.com/usama-tariq1/leet-gin/routers"
 
 	"github.com/joho/godotenv"
 )

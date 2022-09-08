@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	"example/web-service-gin/models"
 	"net/http"
+
+	"github.com/usama-tariq1/leet-gin/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

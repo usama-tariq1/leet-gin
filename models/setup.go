@@ -1,8 +1,9 @@
 package models
 
 import (
-	"example/web-service-gin/config"
 	"fmt"
+
+	"github.com/usama-tariq1/leet-gin/config"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
