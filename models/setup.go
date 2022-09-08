@@ -20,7 +20,7 @@ func ConnectDatabase() {
 	host := env.Get("DB_HOST")
 	user := env.Get("DB_USER")
 	pass := env.Get("DB_PASS")
-	db_name := env.Get("DB_Name")
+	db_name := env.Get("DB_NAME")
 	port := env.Get("DB_PORT")
 	// sslmode := env.Get("DB_SSL")
 
