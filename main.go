@@ -5,11 +5,15 @@ import (
 	"log"
 
 	"github.com/usama-tariq1/leet-gin/config"
+	"github.com/usama-tariq1/leet-gin/helper"
+	"github.com/usama-tariq1/leet-gin/leetgin"
 	"github.com/usama-tariq1/leet-gin/models"
 	"github.com/usama-tariq1/leet-gin/routers"
 
 	"github.com/joho/godotenv"
 )
+
+var console = helper.Console{}
 
 func main() {
 	err := godotenv.Load(".env")
@@ -27,5 +31,8 @@ func main() {
 	// connect Database
 	models.ConnectDatabase()
 
+	console.Log("Debug", fmt.Sprintf("--> Server starting on localhost:%s", port))
+	leetgin.Welcome()
 	app.Run(fmt.Sprintf("localhost:%s", port))
+
 }

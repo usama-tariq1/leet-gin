@@ -6,6 +6,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AlbumRoutes(router *gin.RouterGroup) {
-	router.GET("/", controllers.GetAlbums)
+type AlbumRouter struct {
+}
+
+var AlbumController controllers.AlbumController
+
+func (AlbumRouter AlbumRouter) handle(router *gin.RouterGroup) {
+	router.GET("/", AlbumController.GetAlbums)
 }

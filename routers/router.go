@@ -4,13 +4,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Init() *gin.Engine{
-	// Simple group: v1
+var albumRouter AlbumRouter
+
+func Init() *gin.Engine {
+	// v1 route group
 	router := gin.Default()
 	v1 := router.Group("/v1")
 	{
 		// v1.Use(AuthMiddleware)
-		AlbumRoutes(v1.Group("/albums"))
+		albumRouter.handle(v1.Group("/albums"))
 	}
 
 	return router
