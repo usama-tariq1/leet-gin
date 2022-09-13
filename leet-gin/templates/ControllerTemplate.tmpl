@@ -1,0 +1,50 @@
+package controllers
+
+import (
+	"net/http"
+	"github.com/gin-gonic/gin"
+)
+
+type {{ .Name }} struct {
+}
+
+var ()
+
+
+func ({{ .Name }} {{ .Name }}) Index(app *gin.Context) {
+
+
+	app.IndentedJSON(http.StatusOK, "Index Called")
+}
+
+
+func ({{ .Name }} {{ .Name }}) Create(app *gin.Context) {
+
+
+	app.IndentedJSON(http.StatusOK, "Create Called")
+
+}
+
+func ({{ .Name }} {{ .Name }}) Read(app *gin.Context) {
+
+
+	app.IndentedJSON(http.StatusOK, "Read Called")
+	
+}
+
+
+func ({{ .Name }} {{ .Name }}) Update(app *gin.Context) {
+
+
+	app.IndentedJSON(http.StatusOK, "Update Called")
+
+}
+
+func ({{ .Name }} {{ .Name }}) Delete(app *gin.Context) {
+
+
+	app.IndentedJSON(http.StatusOK, "Delete Called")
+	
+}
+
+

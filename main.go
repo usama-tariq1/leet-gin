@@ -1,16 +1,15 @@
 package main
 
-import (
+import ( // "fmt"
 	"fmt"
 	"log"
 
+	"github.com/joho/godotenv"
 	"github.com/usama-tariq1/leet-gin/config"
 	"github.com/usama-tariq1/leet-gin/helper"
-	"github.com/usama-tariq1/leet-gin/leetgin"
+	leetgin "github.com/usama-tariq1/leet-gin/leet-gin"
 	"github.com/usama-tariq1/leet-gin/models"
 	"github.com/usama-tariq1/leet-gin/routers"
-
-	"github.com/joho/godotenv"
 )
 
 var console = helper.Console{}
@@ -33,6 +32,7 @@ func main() {
 
 	console.Log("Debug", fmt.Sprintf("--> Server starting on localhost:%s", port))
 	leetgin.Welcome()
+
 	app.Run(fmt.Sprintf("localhost:%s", port))
 
 }
