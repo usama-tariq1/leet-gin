@@ -8,6 +8,7 @@ import ( // "fmt"
 	"github.com/usama-tariq1/leet-gin/config"
 	"github.com/usama-tariq1/leet-gin/helper"
 	leetgin "github.com/usama-tariq1/leet-gin/leet-gin"
+	"github.com/usama-tariq1/leet-gin/migrations"
 	"github.com/usama-tariq1/leet-gin/models"
 	"github.com/usama-tariq1/leet-gin/routers"
 )
@@ -28,7 +29,10 @@ func main() {
 	port := env.Get("PORT")
 
 	// connect Database
-	models.ConnectDatabase()
+	connection := models.ConnectDatabase()
+	console.Log("Debug", "** Starting Migration **")
+	migrations.Migrate(connection)
+	console.Log("Debug", "** Migration Completed **")
 
 	console.Log("Debug", fmt.Sprintf("--> Server starting on localhost:%s", port))
 	leetgin.Welcome()

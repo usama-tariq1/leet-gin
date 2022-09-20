@@ -12,7 +12,7 @@ import (
 
 var DB *gorm.DB
 
-func ConnectDatabase() {
+func ConnectDatabase() *gorm.DB {
 
 	console := helper.Console{}
 
@@ -20,7 +20,7 @@ func ConnectDatabase() {
 	host := env.Get("DB_HOST")
 	user := env.Get("DB_USER")
 	pass := env.Get("DB_PASS")
-	db_name := env.Get("DB_Name")
+	db_name := env.Get("DB_NAME")
 	port := env.Get("DB_PORT")
 	// sslmode := env.Get("DB_SSL")
 
@@ -34,9 +34,6 @@ func ConnectDatabase() {
 	}
 	console.Log("Debug", "** Connected to Database **")
 
-	console.Log("Debug", "** Starting Migration **")
-	db.AutoMigrate(&Album{})
-	console.Log("Debug", "** Migration Completed **")
-
 	DB = db
+	return db
 }
