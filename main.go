@@ -16,12 +16,14 @@ import ( // "fmt"
 var console = helper.Console{}
 
 func main() {
+
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
 	// app start
+	leetgin.Welcome()
 	app := routers.Init()
 
 	// get env
@@ -35,7 +37,6 @@ func main() {
 	console.Log("Debug", "** Migration Completed **")
 
 	console.Log("Debug", fmt.Sprintf("--> Server starting on localhost:%s", port))
-	leetgin.Welcome()
 
 	app.Run(fmt.Sprintf("localhost:%s", port))
 
