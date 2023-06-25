@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var albumRouter AlbumRouter
+var sampleRouter SampleRouter
 
 func Init() *gin.Engine {
 	// v1 route group
@@ -13,7 +13,7 @@ func Init() *gin.Engine {
 	v1 := router.Group("/v1")
 	{
 		// v1.Use(AuthMiddleware)
-		albumRouter.handle(v1.Group("/albums"))
+		sampleRouter.handle(v1.Group("/samples"))
 	}
 
 	return router

@@ -8,11 +8,12 @@ import (
 
 // var DB *gorm.DB
 var console helper.Console
-var album models.Album
+
+var sample models.Sample
 
 // list models here
 func Migrate(DB *gorm.DB) {
 
-	DB.AutoMigrate(album)
+	DB.AutoMigrate(sample)
 
 }
