@@ -5,11 +5,6 @@ import (
 	"gorm.io/gorm"
 )
 
-var (
-	albums []models.Album
-	album  models.Album
-)
-
 type Controller struct {
 }
 

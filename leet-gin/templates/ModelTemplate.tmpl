@@ -1,6 +1,9 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"github.com/google/uuid"
+	"gorm.io/gorm"
+)
 
 type {{ .Name }} struct {
     // gorm.Model include ID , CreatedAt , UpdatedAt , DeletedAt
@@ -8,4 +11,50 @@ type {{ .Name }} struct {
 
     // list you table columns here
 	// Name string `json:"name"`
+}
+
+
+func ({{.Name}}) Create({{.Name}} *{{.Name}}) error {
+	{{.Name}}.ID = uuid.New()
+	return Lamp().Create(&{{.Name}}).Error
+}
+
+func ({{.Name}} {{.Name}}) GetByID(id uuid.UUID) (*{{.Name}}, error) {
+	{{.Name}}.ID = id
+	err := Lamp().First(&{{.Name}}).Error
+	return &{{.Name}}, err
+}
+
+func ({{.Name}}) Update({{.Name}} *{{.Name}} , id uuid.UUID) error {
+    Sample.ID = id
+	return Lamp().Model(&{{.Name}}).Updates({{.Name}}).Error
+
+}
+
+func ({{.Name}} {{.Name}}) Delete(id uuid.UUID) error {
+	{{.Name}}.ID = id
+	_, err := {{.Name}}.GetByID(id)
+	if err != nil {
+		return err
+	}
+
+	return Lamp().Delete(&{{.Name}}).Error
+}
+
+func ({{.Name}}) GetList(page, limit int) ([]{{.Name}}, int64, error) {
+	var list []{{.Name}}
+	var totalCount int64
+
+	// Retrieve the total count
+	if err := Lamp().Model(&{{.Name}}{}).Count(&totalCount).Error; err != nil {
+		return nil, 0, err
+	}
+
+	// Apply pagination and retrieve the list
+	offset := (page - 1) * limit
+	if err := Lamp().Limit(limit).Offset(offset).Find(&list).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return list, totalCount, nil
 }
