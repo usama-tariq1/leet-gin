@@ -21,7 +21,11 @@ leet-astro
 ```
 ## Create project 
 ```sh
-leet-astro init ProjectName
+leet-astro init ProjectName "ModUser"
+```
+example
+```sh
+leet-astro init Test "github.com/usama-tariq1"
 ```
 
 assuming go 1.18 or greater is already installed on system
