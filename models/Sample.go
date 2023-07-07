@@ -2,12 +2,11 @@ package models
 
 import (
 	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 type Sample struct {
-	// gorm.Model include ID , CreatedAt , UpdatedAt , DeletedAt
-	gorm.Model
+	// BaseModel include ID , CreatedAt , UpdatedAt , DeletedAt
+	BaseModel
 
 	Title  string  `json:"title"`
 	Artist string  `json:"artist"`

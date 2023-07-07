@@ -2,12 +2,11 @@ package models
 
 import (
 	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 type {{ .Name }} struct {
-    // gorm.Model include ID , CreatedAt , UpdatedAt , DeletedAt
-	gorm.Model
+    // BaseModel include ID , CreatedAt , UpdatedAt , DeletedAt
+	BaseModel
 
     // list you table columns here
 	// Name string `json:"name"`
