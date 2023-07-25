@@ -63,13 +63,27 @@ leet-astro create controller ControllerName
 ```
 
 ## Create Model
+create just model with query methods
 ```sh
 leet-astro create model ModalName
+```
+With controller auto generated 
+```sh
+leet-astro create model Name --controller=true
+```
+With controller and router auto generated
+```sh
+leet-astro create model Name --controller=true --router=true
 ```
 
 ## Create Router
 ```sh
-leet-astro create router RouterName
+leet-astro create router NameRouter
+```
+
+## Create Middleware
+```sh
+leet-astro create middleware Name
 ```
 
 #

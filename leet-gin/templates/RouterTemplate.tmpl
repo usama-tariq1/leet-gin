@@ -9,9 +9,11 @@ import (
 type {{ .Name }} struct {
 }
 
-// var SampleController controllers.SampleController
 
 func ({{ .Name }} {{ .Name }} ) handle(router *gin.RouterGroup) {
+	// var SampleController controllers.SampleController
+    // router.Use(middlewares.Sample()) 
+
 	// router.GET("", SampleController.Index)
 	// router.POST("", SampleController.Create)
 	// router.GET("/:id", SampleController.Read)

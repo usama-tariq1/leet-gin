@@ -45,14 +45,17 @@ func (Sample) GetList(page, limit int) ([]Sample, int64, error) {
 	var list []Sample
 	var totalCount int64
 
+	// Create a query builder
+	query := Lamp().Model(&Sample{})
+
 	// Retrieve the total count
-	if err := Lamp().Model(&Sample{}).Count(&totalCount).Error; err != nil {
+	if err := query.Count(&totalCount).Error; err != nil {
 		return nil, 0, err
 	}
 
 	// Apply pagination and retrieve the list
 	offset := (page - 1) * limit
-	if err := Lamp().Limit(limit).Offset(offset).Find(&list).Error; err != nil {
+	if err := query.Limit(limit).Offset(offset).Find(&list).Error; err != nil {
 		return nil, 0, err
 	}
 

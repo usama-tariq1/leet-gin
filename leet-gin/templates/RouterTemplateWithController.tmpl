@@ -1,0 +1,22 @@
+package routers
+
+import (
+	"github.com/gin-gonic/gin"
+	"{{.ModName}}/controllers"
+
+)
+
+type {{ .Name }} struct {
+}
+
+
+func ({{ .Name }} {{ .Name }} ) handle(router *gin.RouterGroup) {
+    var {{.ControllerName}} controllers.{{.ControllerName}}
+    // router.Use(middlewares.Sample()) 
+
+	router.GET("", {{.ControllerName}}.Index)
+	router.POST("", {{.ControllerName}}.Create)
+	router.GET("/:id", {{.ControllerName}}.Read)
+	router.PATCH("/:id", {{.ControllerName}}.Update)
+	router.DELETE("/:id", {{.ControllerName}}.Delete)
+}
