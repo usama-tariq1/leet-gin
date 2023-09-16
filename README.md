@@ -5,15 +5,15 @@ This template should help get you started developing with Golang
 Current Project is Based on Gorm and Gin-Gonic
 
 
-## Project Setup
+## Project Setup (With out CLI)
 Clone project and run
 ```sh
 go get
 ```
-# Project Setup
+# Project Setup (With CLI)
 ## Install Cli
 ```sh
-go install https://github.com/usama-tariq1/leet-astro
+go install "github.com/usama-tariq1/leet-astro@latest"
 ```
 Test Cli
 ```sh
